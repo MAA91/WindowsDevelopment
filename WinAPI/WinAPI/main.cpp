@@ -1,22 +1,22 @@
-#include<Windows.h>
+п»ї#include<Windows.h>
 #include"resource.h"
 
-CONST CHAR g_sz_LOGIN_INVITATION[] = "Введите имя пользователя";
+CONST CHAR g_sz_LOGIN_INVITATION[] = "Р’РІРµРґРёС‚Рµ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ";
 
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, INT nCmdShow)
 {
-	//hInstance - экземпляр запущенного *.ехе-файла нашей программы
-	//hPrevInst - не используется
+	//hInstance - СЌРєР·РµРјРїР»СЏСЂ Р·Р°РїСѓС‰РµРЅРЅРѕРіРѕ *.РµС…Рµ-С„Р°Р№Р»Р° РЅР°С€РµР№ РїСЂРѕРіСЂР°РјРјС‹
+	//hPrevInst - РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
 	//LPSTR - Long Pointer to STRing
-	//lpCmdLine - CommandLine(Командная строка с параметрами запуска приложения)
-	//nCmdShow - режим отображения окна
-	//Префиксы: n..., lp..., это Венгерская нотация
+	//lpCmdLine - CommandLine(РљРѕРјР°РЅРґРЅР°СЏ СЃС‚СЂРѕРєР° СЃ РїР°СЂР°РјРµС‚СЂР°РјРё Р·Р°РїСѓСЃРєР° РїСЂРёР»РѕР¶РµРЅРёСЏ)
+	//nCmdShow - СЂРµР¶РёРј РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РѕРєРЅР°
+	//РџСЂРµС„РёРєСЃС‹: n..., lp..., СЌС‚Рѕ Р’РµРЅРіРµСЂСЃРєР°СЏ РЅРѕС‚Р°С†РёСЏ
 	//	n - Number
 	//	lp - Long Pointer
 	//	h - HINSTANCE
-	// Модальное окно блокирует родительское окно
+	// РњРѕРґР°Р»СЊРЅРѕРµ РѕРєРЅРѕ Р±Р»РѕРєРёСЂСѓРµС‚ СЂРѕРґРёС‚РµР»СЊСЃРєРѕРµ РѕРєРЅРѕ
 
 	/*MessageBox
 	(
@@ -32,20 +32,20 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
 
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	/*hwnd - Handler to window.Обработчик ил дескриптор окна - это число при помощи которого можно
-	  обратиться к окну
-	  uMsg - cooбщение которое отправляется окну
-	  wParam, lParam - параметры сообщения, у каждого сообщения свой набор параметров.
+	/*hwnd - Handler to window.РћР±СЂР°Р±РѕС‚С‡РёРє РёР» РґРµСЃРєСЂРёРїС‚РѕСЂ РѕРєРЅР° - СЌС‚Рѕ С‡РёСЃР»Рѕ РїСЂРё РїРѕРјРѕС‰Рё РєРѕС‚РѕСЂРѕРіРѕ РјРѕР¶РЅРѕ
+	  РѕР±СЂР°С‚РёС‚СЊСЃСЏ Рє РѕРєРЅСѓ
+	  uMsg - cooР±С‰РµРЅРёРµ РєРѕС‚РѕСЂРѕРµ РѕС‚РїСЂР°РІР»СЏРµС‚СЃСЏ РѕРєРЅСѓ
+	  wParam, lParam - РїР°СЂР°РјРµС‚СЂС‹ СЃРѕРѕР±С‰РµРЅРёСЏ, Сѓ РєР°Р¶РґРѕРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ СЃРІРѕР№ РЅР°Р±РѕСЂ РїР°СЂР°РјРµС‚СЂРѕРІ.
 	*/
 	switch (uMsg)
 	{
-	case WM_INITDIALOG: // Это сообщение отправляется 1 раз при инициализации окна
+	case WM_INITDIALOG: // Р­С‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ РѕС‚РїСЂР°РІР»СЏРµС‚СЃСЏ 1 СЂР°Р· РїСЂРё РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РѕРєРЅР°
 	{
 		HWND hEdit = GetDlgItem(hwnd, IDC_EDIT_LOGIN);
 		SendMessage(hEdit, WM_SETTEXT, 0, (LPARAM)g_sz_LOGIN_INVITATION);
 	}
 		break;
-	case WM_COMMAND: // Обрабатывает нажатие кнопок и др. действия пользовотеля
+	case WM_COMMAND: // РћР±СЂР°Р±Р°С‚С‹РІР°РµС‚ РЅР°Р¶Р°С‚РёРµ РєРЅРѕРїРѕРє Рё РґСЂ. РґРµР№СЃС‚РІРёСЏ РїРѕР»СЊР·РѕРІРѕС‚РµР»СЏ
 		switch (LOWORD(wParam))
 		{
 		case IDC_EDIT_LOGIN:
@@ -79,7 +79,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			SendMessage(hEditPassword, WM_SETTEXT, 0, (LPARAM)sz_buffer);
 		}
 		break;
-		case IDOK: MessageBox(hwnd, "Была нажата кнопка ОК", "Info", MB_OK | MB_ICONINFORMATION); break;
+		case IDOK: MessageBox(hwnd, "Р‘С‹Р»Р° РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РћРљ", "Info", MB_OK | MB_ICONINFORMATION); break;
 		case IDCANCEL: EndDialog(hwnd, 0); break;
 		}
 		break;
