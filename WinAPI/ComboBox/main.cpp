@@ -1,4 +1,4 @@
-#include<Windows.h>
+п»ї#include<Windows.h>
 #include<string>
 #include"resource.h"
 
@@ -44,8 +44,8 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			CHAR* text = new CHAR[SendMessage(hCombo, CB_GETLBTEXTLEN, (WPARAM)index, 0)];
 			SendMessage(hCombo, CB_GETLBTEXT, (WPARAM)index, (LPARAM)text);
 
-			std::string buffer = "Вы выбрали пункт №" + std::to_string(index);
-			buffer += " со значением ";
+			std::string buffer = "Р’С‹ РІС‹Р±СЂР°Р»Рё РїСѓРЅРєС‚ в„–" + std::to_string(index);
+			buffer += " СЃРѕ Р·РЅР°С‡РµРЅРёРµРј ";
 			buffer += text;
 
 			MessageBox(NULL, buffer.c_str(), "Info", MB_OK | MB_ICONINFORMATION);
