@@ -27,15 +27,18 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		HWND hCombo = GetDlgItem(hwnd, IDC_COMBO1);
 		for (int i = 0; i < sizeof(g_COMBO_BOX_ITEMS) / sizeof(g_COMBO_BOX_ITEMS[0]); i++)
-		{
 			SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)g_COMBO_BOX_ITEMS[i]);
-		}
 		SendMessage(hCombo, CB_SETCURSEL, 0, 0);
 	}
 		break;
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
+		case IDC_CHECK:
+		{
+			
+		}
+			break;
 		case IDOK:
 		{
 			HWND hCombo = GetDlgItem(hwnd, IDC_COMBO1);
