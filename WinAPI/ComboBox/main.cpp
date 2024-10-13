@@ -99,6 +99,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					SendMessage(hCombo, CB_DELETESTRING, 0, 0);
 					SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)g_COMBO_BOX_ITEMS[i]);
 				}
+			SendMessage(hCombo, CB_SETCURSEL, 0, 0);
 		}
 			break;
 		case IDOK:
